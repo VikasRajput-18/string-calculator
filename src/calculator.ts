@@ -1,4 +1,4 @@
-export function add(numbers: string): number | string {
+export function add(numbers: string): number {
   if (numbers === "") return 0;
 
   let delimiter = /,|\n/;
@@ -11,7 +11,7 @@ export function add(numbers: string): number | string {
   const nums = numbers.split(delimiter).map(Number);
   const negatives = nums.filter((n) => n < 0);
   if (negatives.length) {
-    return `negative numbers not allowed ${negatives.join(",")}`;
+    throw new Error(`negative numbers not allowed ${negatives.join(",")}`);
   }
 
   return nums.reduce((acc, num) => acc + num, 0);
