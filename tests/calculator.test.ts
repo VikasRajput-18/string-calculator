@@ -11,3 +11,7 @@ test("returns number when one number is passed", () => {
 test("returns sum of two comma-separated numbers", () => {
   expect(add("1,2")).toBe(3);
 });
+
+test("handles new lines between numbers", () => {
+  expect(add("1\n2,3")).toBe(6);
+});
