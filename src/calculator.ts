@@ -5,8 +5,7 @@ function parseStringNumberToInteger(numbers: string) {
     delimiter = new RegExp(parts[0].substring(2));
     numbers = parts[1];
   }
-  const nums = numbers.split(delimiter).map(Number);
-  return nums;
+  return numbers.split(delimiter).map(Number);
 }
 
 function validateNegativeNum(nums: number[]) {
@@ -19,10 +18,8 @@ function validateNegativeNum(nums: number[]) {
 export function sumOfStringNumber(numbers: string): number {
   if (numbers === "") return 0;
 
-  let nums = parseStringNumberToInteger(numbers);
-  validateNegativeNum(nums);
-
-  return nums.reduce((acc, num) => acc + num, 0);
+  const nums = parseStringNumberToInteger(numbers);
+  const filteredNumbers = nums.filter((n) => n < 1000);
+  validateNegativeNum(filteredNumbers);
+  return filteredNumbers.reduce((acc, num) => acc + num, 0);
 }
-
-

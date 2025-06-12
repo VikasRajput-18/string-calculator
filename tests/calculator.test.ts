@@ -24,3 +24,6 @@ test("throws exception on negative numbers", () => {
     new Error(`negative numbers not allowed -2,-4`)
   );
 });
+test("skip the number if is greater than or equals to 1000", () => {
+  expect(sumOfStringNumber("1,2,1000")).toBe(3);
+});
